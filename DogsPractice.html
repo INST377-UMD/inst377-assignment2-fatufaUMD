@@ -1,0 +1,117 @@
+<html>
+
+<head>
+    <title>Assignment2Dogs</title>
+    <link rel="stylesheet" href="Assignment2practice.css">
+    <script src='DogsPractice.js' defer></script>
+
+    <style>
+        #feedbackBox button:hover{
+            background-color:blueviolet
+        }
+        #infoBox{
+            visibility:hidden;
+        } 
+    </style>
+     <style>
+        div[data-simple-slider] { width:612px; height:612px; }
+      </style>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/annyang/2.6.1/annyang.min.js"></script>
+    <script>
+        if (annyang) {
+            const commands = {
+        'hello': () => { alert('Hello world!'); },
+        'change the color to *tag': () => { changeColor; },
+        'navigate to *page': () => {pageNavigation;},
+        'load *dog breed': () => {breedTracker;}
+
+      
+       };
+      var changeColor = function(tag){
+        var colorChanger = document.getElementById("pageLoad").style.backgroundColor=""+tag;
+          $(colorChanger);
+      };
+      var pageNavigation = function(tag){
+        var urlPage = tag+"2practice.html";
+          $.getJSON(urlPage);
+      };
+      var breedTracker = function(tag){
+        var breedName = document.dogTable.tr.button.innerHTML = tag;
+          $(breedName);
+      };
+        
+         
+          annyang.addCommands(commands);
+        
+         
+        }
+        </script>
+   
+</head>
+
+<body>
+    
+    <header id="pagebar">
+        <h1>INST377: Dogs</h1>
+    </header>
+    <nav id="navigation">
+        <ul>
+            <li id="Home"><a href="Assignment2Practice.html">Home</a></li>
+            <li id="Stocks"><a href="StocksPractice.html">Stocks</a></li>
+            <li id="Dogs"><a href="DogsPractice.html">Dogs</a></li>
+        </ul>
+    </nav>
+    <h1>Dogs</h1>
+    <div data-simple-slider>
+        <img src=""id="image1"/>
+        <img src=""id="image2"/>
+        <img src=""id="image3"/>
+        <img src=""id="image4"/>
+        <img src=""id="image5"/>
+        <img src=""id="image6"/>
+        <img src=""id="image7"/>
+        <img src=""id="image8"/>
+        <img src=""id="image9"/>
+        <img src=""id="image10"/>
+    </div>
+    <table id="dogTable">
+        <tr>
+           
+        </tr>
+    </table>
+
+   
+        
+    <aside id ="infoBox">
+        <h1 id="boxName">Name:</h1>
+        <h2 id="boxDescription">Description:</h2>
+        <h2 id="boxMin">Min Life:</h2>
+        <h2 id="boxMax">Max Life:</h2>
+    </aside>
+    <aside id="feedbackBox">
+        <h1>Audio Navigation Options</h1>
+        <h3>Say hello to receive a hello back</h3>
+        <h3>Say change the color to /color/ to change the page color </h3>
+        <h3>Say navigate to /page/ to be brought to that page</h3>
+        
+        <form name ="feedbackLink" onclick="annyang.start();return false;">
+            <button>Turn On Listening</button>
+        </form>
+        <form name ="voiceOff" onclick="annyang.stop();return false;">
+            <button>Turn Off Listening</button>
+        </form>
+    </aside>
+    
+
+    
+   
+    <footer id="pagebar">
+        <p>Work in Progress</p>
+    </footer>
+</body>
+
+<script src="https://rawgit.com/ruyadorno/simple-slider/master/dist/simpleslider.min.js">defer</script>
+<script>
+    simpleslider.getSlider();
+</script>
+</html>

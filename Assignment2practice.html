@@ -1,0 +1,90 @@
+<html>
+
+<head>
+    <title>Assignment2Home</title>
+    <script defer src="Assignment2practice.js"></script>
+    <link rel="stylesheet" href="Assignment2practice.css">
+
+    <style>
+        #feedbackBox button:hover{
+            background-color:blueviolet
+        }
+    </style>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/annyang/2.6.1/annyang.min.js"></script>
+    <script>
+    if (annyang) {
+      
+      const commands = {
+        'hello': () => { alert('Hello world!'); },
+        'change the color to *tag': () => { changeColor; },
+        'navigate to *page': () => {pageNavigation;}
+
+     
+       };
+      var changeColor = function(tag){
+        var colorChanger = document.getElementById("pageLoad").style.backgroundColor=""+tag;
+          $(colorChanger);
+      }
+      var pageNavigation = function(tag){
+        var urlPage = tag+"2practice.html";
+          $.getJSON(urlPage);
+      }
+   
+      annyang.addCommands(commands);
+    
+ 
+    }
+    </script>
+</head>
+
+<body id="pageLoad">
+
+    
+    <header id="pagebar">
+        <h1>INST377: Activities</h1>
+    </header>
+
+    
+    <nav id="navigation">
+        <ul>
+            <li id="Home"><a href="Assignment2Practice.html">Home</a></li>
+            <li id="Stocks"><a href="StocksPractice.html">Stocks</a></li>
+            <li id="Dogs"><a href="DogsPractice.html">Dogs</a></li>
+        </ul>
+    </nav>
+
+    
+    <div class="primarySpace">
+        <h1>A Variety of Activities</h1>
+        <button class="button-49" role="button"><a href="StocksPractice.html">Stocks</a></button>
+        <button class="button-49" role="button"><a href="DogsPractice.html">Dogs</a></button>
+        <div class="contentSpace">
+            <div class="container">
+                <h1>Page Load Quote</h1>
+                <p id = "quoteInspire"><a href="https://umd.edu/">&#127979</a></p>
+                <p id = "sourceInspire"><a href="https://umd.edu/">&#127979</a></p>
+            </div>
+        </div>
+
+        <aside id="feedbackBox">
+            <h1>Audio Navigation Options</h1>
+            <h3>Say hello to receive a hello back</h3>
+            <h3>Say change the color to /color/ to change the page color </h3>
+            <h3>Say navigate to /page/ to be brought to that page</h3>
+            
+            <form name ="feedbackLink" onclick="annyang.start();return false;">
+                <button>Turn On Listening</button>
+            </form>
+            <form name ="voiceOff" onclick="annyang.stop();return false;">
+                <button>Turn Off Listening</button>
+            </form>
+        </aside>
+    </div>
+
+   
+    <footer id="pagebar">
+        <p>Work in Progress</p>
+    </footer>
+</body>
+
+</html>
