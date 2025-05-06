@@ -1,0 +1,118 @@
+<html>
+
+<head>
+    <title>Assignment2Stocks</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+    <script src='StocksPractice.js' defer></script>
+   
+    <link rel="stylesheet" href="Assignment2practice.css">
+    <style>
+        #feedbackBox button:hover{
+            background-color:blueviolet
+        }
+        #chartDiv {
+            width: 75%;
+            margin-left: 12.5%;
+            margin-right: 12.5%;
+        }
+    </style>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/annyang/2.6.1/annyang.min.js"></script>
+    <script>
+        if (annyang) {
+            const commands = {
+        'hello': () => { alert('Hello world!'); },
+        'change the color to *tag': () => { changeColor; },
+        'navigate to *page': () => {pageNavigation;},
+        'get to *stock': () => {stockTracker;}
+
+       
+       };
+      var changeColor = function(tag){
+        var colorChanger = document.getElementById("pageLoad").style.backgroundColor=""+tag;
+          $(colorChanger);
+      };
+      var pageNavigation = function(tag){
+        var urlPage = tag+"2practice.html";
+          $.getJSON(urlPage);
+      };
+      var stockTracker = function(tag){
+        var urlSite = "https://finance.yahoo.com/quote/"+tag;
+          $.getJSON(urlSite);
+      };
+        
+         
+          annyang.addCommands(commands);
+        
+        }
+        </script>
+</head>
+
+<body>
+    
+    <header id="pagebar">
+        <h1>INST377: Stocks</h1>
+    </header>
+
+    
+    <nav id="navigation">
+        <ul>
+            <li id="Home"><a href="Assignment2Practice.html">Home</a></li>
+            <li id="Stocks"><a href="StocksPractice.html">Stocks</a></li>
+            <li id="Dogs"><a href="DogsPractice.html">Dogs</a></li>
+        </ul>
+    </nav>
+    <div id="chartDiv">
+        <canvas id="myChart"></canvas>
+    </div>
+    <h1>Enter Ticker Below:</h1>
+    <form name="infoForm" onsubmit="return false">
+        <label for="nameSubmit">Stock:</label>
+        <input type="text" id="nameSubmit" required maxLength="5">
+        <input type="submit">
+        <br>
+        <label for="timeLength">Time Span:</label>
+        <select id="timeLength" name="timeLength" required>
+            <option value="thirty">Thirty Days</option>
+            <option value="sixty">Sixty Days</option>
+            <option value="ninety">Ninety Days</option>
+        </select>
+    </form>
+    <h1>Stock Data</h1>
+   
+    <h1>Stocks</h1>
+    <table id="tickerTable">
+        <tr>
+            <th>Ticker</th>
+            <th>Number of Comments</th>
+            <th>Sentiment</th>
+        </tr>
+    </table>
+    <script>
+        function generateChart(){
+          console.log("hello");
+        }
+    </script>
+   
+        <aside id="feedbackBox">
+            <h1>Audio Navigation Options</h1>
+            <h3>Say hello to receive a hello back</h3>
+            <h3>Say change the color to /color/ to change the page color </h3>
+            <h3>Say navigate to /page/ to be brought to that page</h3>
+            <h3>Say get to /stock/ to bring up their page on yahoo finance</h3>
+            
+            <form name ="feedbackLink" onclick="annyang.start();return false;">
+                <button>Turn On Listening</button>
+            </form>
+            <form name ="voiceOff" onclick="annyang.stop();return false;">
+                <button>Turn Off Listening</button>
+            </form>
+        </aside>
+  
+
+   
+    <footer id="pagebar">
+        <p>Work in Progress</p>
+    </footer>
+</body>
+
+</html>
